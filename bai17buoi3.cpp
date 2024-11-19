@@ -1,6 +1,31 @@
 #include <stdio.h>
 #include <math.h>
 #define ll long long
+int is_prime(int);
+void cau_a(int),cau_b(int),cau_c(int n),cau_d(int n);
+ll cau_e(int),cau_f(int ),cau_g(int);
+double cau_h(int),cau_i(int );
+int main(){
+	int n;
+	do{
+		printf("nhap n=");
+		scanf("%d",&n);
+	}while(n>=100 || n<=0);
+	printf("cac gia tri tu 1 den %d:   ",n);
+	cau_a(n);printf("\n");
+	printf("cac gia tri chan tu 1 den %d:   ",n);
+	cau_b(n);printf("\n");
+	printf("cac gia tri chia het cho 5 tu 1 den %d:  ",n);
+	cau_c(n);printf("\n");
+	printf("cac so nguyen to nho hon %d la:  ",n);
+	cau_d(n);printf("\n");
+	printf(" tong cac gia tri tu 1 den %d=%lld\n",n,cau_e(n));
+	printf("tong cac so le tu 1 den %d=%lld\n",n,cau_f(n));
+	printf("tong cac so nguyen to nho hon %d=%lld\n",n,cau_g(n));
+	printf("trung binh cong cac so le tu 1 den %d=%.2lf\n",n,cau_h(n));
+	printf("trung binh cong cac so nguyen to nho hon %d=%.2lf\n",n,cau_i(n));
+	return 0;
+}
 //ham kiem tra mot so co phai la so nguyen to hay khong
 int is_prime(int n){
 	if (n<2) return 0;
@@ -77,25 +102,4 @@ double cau_i(int n){
 		if (is_prime(i)) demngto++;
 	}
 	return tongnguyento/demngto;
-}
-int main(){
-	int n;
-	do{
-		printf("nhap n=");
-		scanf("%d",&n);
-	}while(n>=100 || n<=0);
-	printf("cac gia tri tu 1 den %d:   ",n);
-	cau_a(n);printf("\n");
-	printf("cac gia tri chan tu 1 den %d:   ",n);
-	cau_b(n);printf("\n");
-	printf("cac gia tri chia het cho 5 tu 1 den %d:  ",n);
-	cau_c(n);printf("\n");
-	printf("cac so nguyen to nho hon %d la:  ",n);
-	cau_d(n);printf("\n");
-	printf(" tong cac gia tri tu 1 den %d=%lld\n",n,cau_e(n));
-	printf("tong cac so le tu 1 den %d=%lld\n",n,cau_f(n));
-	printf("tong cac so nguyen to nho hon %d=%lld\n",n,cau_g(n));
-	printf("trung binh cong cac so le tu 1 den %d=%.2lf\n",n,cau_h(n));
-	printf("trung binh cong cac so nguyen to nho hon %d=%.2lf\n",n,cau_i(n));
-	return 0;
 }
