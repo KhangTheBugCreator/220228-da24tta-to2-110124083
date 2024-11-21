@@ -115,9 +115,18 @@ void firstngto(int a[],int n){
 	else printf("mang khong co so nguyen to nao\n");
 }
 void soduongle(int a[], int n){
-	for (int i=0;i<n;i++){
-		if (a[i]>0 && a[i]%2!=0) printf("%d  ",a[i]);
+    int check=0;
+    for (int i=0;i<n;i++){
+    	if (a[i]>0 && a[i]%2!=0) check=1;
 	}
+	if (check==1){
+		printf("so le co trong mang la: ");
+		for (int i=0;i<n;i++){
+			if (a[i]>0 && a[i]%2!=0) printf("%d  ",a[i]);
+		}
+	}
+	else printf("khong co so le nao trong mang");
+	printf("\n");
 }
 int checksoam(int a[],int n){
 	for (int i=0;i<n;i++){
