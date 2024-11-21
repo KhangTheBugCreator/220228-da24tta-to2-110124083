@@ -2,8 +2,8 @@
 #define SIZE 1000
 #define ll long long
 #include <math.h>
-int checkngto(int a[], int n),slsoam(int a[],int n),slsole(int a[],int n),slngto(int a[],int n),firstngto(int a[],int n),checksoam(int a[],int n),checkx(int a[], int n, int x);
-void nhapmang(int a[], int),xuatmang(int a[],int n),soduongle(int a[],int n);
+int checkngto(int a[], int n),slsoam(int a[],int n),slsole(int a[],int n),slngto(int a[],int n),checksoam(int a[],int n),checkx(int a[], int n, int x);
+void firstngto(int a[],int n),nhapmang(int a[], int),xuatmang(int a[],int n),soduongle(int a[],int n);
 ll tongMang(int a[],int n),tongDuong(int a[], int n),tongvitrile(int a[], int n );
 
 
@@ -23,12 +23,7 @@ int main(){
 	printf("so luong so am co trong mang la:  %d\n",slsoam(a,n));//cau_f
 	printf("so luong so le co trong mang la:  %d\n",slsole(a,n));//cau_g
 	printf("so luong so nguyen to  co trong mang la:  %d\n",slngto(a,n));//cau_h
-	if (firstngto(a,n)==0){
-		printf("mang khong co so nguyen to nao\n");
-	}
-	else{
-		printf("so nguyen to dau tien trong mang la so  %d\n",firstngto(a,n));
-	}//cau_i
+	firstngto(a,n);//cau_i
 	soduongle(a,n);//cau_j
 	if (checksoam(a,n)) printf("mang A co ton tai so am\n ");
 	else printf("mang A khong ton tai so am\n");//cau_k
@@ -105,14 +100,19 @@ int slngto(int a[],int n){
 	}
 	return dem;
 }
-int firstngto(int a[],int n){
+//caui
+void firstngto(int a[],int n){
+	int res;
+	int check=0;
 	for (int i=0;i<n;i++){
 		if (checkngto(a[i])){
-			return a[i];
-			break;	
+			res=a[i];
+			check=1;
+			break;
 		}
 	}
- 	return 0;
+	if (check==1) printf("so nguyen to dau tien trong mang la:  %d\n",res);
+	else printf("mang khong co so nguyen to nao\n");
 }
 void soduongle(int a[], int n){
 	for (int i=0;i<n;i++){
