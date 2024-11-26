@@ -4,6 +4,8 @@ void nhapmang(float a[],int n),xuatmang(float a[], int n), invitrile(float a[], 
 float tong(float a[],int n),tbcvitrile(float a[], int n),max(float a[],int n);
 int demduong(float a[],int n),checktoanam(float a[], int n);
 void maxfirst(float a[], int n);
+int partition(float a[], int l, int r);
+void QuickSort(float a[], int l, int r);
 int main(){
 	int n;
 	do{
@@ -16,7 +18,11 @@ int main(){
 	/*cau_c*/printf("tong cac phan tu cua mang:  %.2f",tong(a,n));printf("\n");
 	/*cau_d*/printf("trung binh cong cac phan tu tai vi tri le:  %.2f",tbcvitrile(a,n));printf("\n");
 	/*cau_e*/printf("so phan tu duong trong mang la:  %d",demduong(a,n));printf("\n");
-	/*cau_f*/BurbleSort(a,n);printf("\n");
+	/*cau_f*/printf("mang sau khi sap xep: ");QuickSort(a,0,n-1);
+			for (int i=0;i<n;i++){
+				printf("%.2f ",a[i]);
+			}
+	printf("\n");
 	/*cau_g*/invitrile(a,n);printf("\n");
 	/*cau_h*/inravitricogiatrilakhong(a,n);printf("\n");
 	/*cau_i*/printf("gia tri lon nhat trong mang la: %.2f", max(a,n));printf("\n");
@@ -76,20 +82,26 @@ int demduong(float a[], int n){
 	return dem;
 }
 //cau_f;
-void BurbleSort(float a[], int n){
-	for (int i=0;i<n-1;i++){
-		for (int j=n-1;j>i;j--){
-			if (a[j]<a[i]){
-				float tmp=a[i];
-				a[i]=a[j];
-				a[j]=tmp;
-			}
+int partition(float a[], int l, int r){
+	int i=l-1;
+	for (int j=l;j<r;j++){
+		if (a[r]>=a[j]){
+			i++;
+			float tmp=a[i];
+			a[i]=a[j];
+			a[j]=tmp;
 		}
 	}
-	printf("mang sau khi da sap xep tang dan: \n");
-	
-	for (int i=0;i<n;i++){
-		printf("%.2f ",a[i]);
+	float tmp=a[r];
+	a[r]=a[i+1];
+	a[i+1]=tmp;
+	return i+1;
+}
+void QuickSort(float a[],int l, int r){
+	if (l<r){
+		int pos=partition(a,l,r);
+		QuickSort(a,l,pos-1);
+		QuickSort(a,pos+1,r);
 	}
 }
 //cau_g;
