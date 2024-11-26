@@ -11,7 +11,7 @@ int main(){
 		scanf("%d",&n);
 	}while(n>SIZE||n<=0);
 	float a[n];
-	/*caua*/;nhapmang(a,n);printf("\n");
+	/*cau_a*/;nhapmang(a,n);printf("\n");
 	/*cau_b*/xuatmang(a,n);printf("\n");
 	/*cau_c*/printf("tong cac phan tu cua mang:  %.2f",tong(a,n));printf("\n");
 	/*cau_d*/printf("trung binh cong cac phan tu tai vi tri le:  %.2f",tbcvitrile(a,n));printf("\n");
