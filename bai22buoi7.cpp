@@ -21,6 +21,7 @@ int main(){
 	KiemTraTonTaiSoDuong(a,n);
 	SapXepNoiBot(a,n);
 	LocSoAm(a,n);
+	free(a);
 	return 0;
 }
 
