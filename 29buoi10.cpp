@@ -8,7 +8,7 @@ int main(){
 	strcpy(path,"28output.txt");
 	fi=fopen(path,"rt");
 	fscanf(fi,"%d",&n);
-	int *p=(int *)malloc(sizeof(int));
+	int *p=(int *)malloc(n*sizeof(int));
 	for (int i=0;i<n;i++){
 		fscanf(fi,"%d",&p[i]);
 	}
@@ -17,5 +17,7 @@ int main(){
 	for (int i=0;i<n;i++){
 		printf("%d ",p[i]);
 	}
+	fclose(fi);
+	free(p);
 	return 0;
 }
